@@ -148,9 +148,11 @@ body {
   display: flex;
   z-index: 1;
   padding: 0 20px;
+  perspective: 1000px; /*Optimizacion*/
 }
 
 .bubbles span {
+  will-change: transform; /*Optimizacion*/
   position: relative;
   width: 5px;
   height: 5px;
@@ -158,15 +160,15 @@ body {
   margin: 0 4px;
   border-radius: 50%;
   box-shadow: 0 0 0 3px #519EF744, 0 0 50px aliceblue, 0 0 100px aliceblue;
-  animation: animate 15s ease-in-out infinite;
-  animation-duration: calc(125s/var(--i));
+  animation: animate 15s linear infinite;
+  animation-duration: calc(125s/var(--i));  /*Optimizacion*/
 }
 
 .bubbles span:nth-child(even) {
   background-color: aliceblue;
   box-shadow: 0 0 0 2px #519EF744, 0 0 50px aliceblue, 0 0 100px aliceblue;
 }
-/*
+
 @keyframes animate {
   0% {
     transform: translateY(20vh) scale(0) rotate(90deg);
@@ -177,7 +179,7 @@ body {
   100% {
     transform: translateY(-20vh) scale(0.5) rotate(360deg);
   }
-}*/
+}
 
 #lines{
   position: fixed;
